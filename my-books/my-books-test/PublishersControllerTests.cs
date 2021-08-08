@@ -7,11 +7,8 @@ using my_books.Data.Models;
 using my_books.Data.Services;
 using my_books.Data.ViewModels;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace my_books_tests
 {
@@ -21,9 +18,9 @@ namespace my_books_tests
             .UseInMemoryDatabase(databaseName: "BookDbControllerTest")
             .Options;
 
-        AppDbContext context;
-        PublishersService publishersService;
-        PublishersController publishersController;
+        private AppDbContext context;
+        private PublishersService publishersService;
+        private PublishersController publishersController;
 
         [OneTimeSetUp]
         public void Setup()
@@ -77,7 +74,6 @@ namespace my_books_tests
             IActionResult actionResult = publishersController.GetPublisherById(publisherId);
 
             Assert.That(actionResult, Is.TypeOf<NotFoundResult>());
-
         }
 
         [Test, Order(4)]
@@ -114,9 +110,7 @@ namespace my_books_tests
             IActionResult actionResult = publishersController.DeletePublisherById(publisherId);
 
             Assert.That(actionResult, Is.TypeOf<OkResult>());
-
         }
-
 
         [Test, Order(7)]
         public void HTTPDELETE_DeletePublisherById_ReturnsBadRequest_Test()
@@ -133,8 +127,6 @@ namespace my_books_tests
         {
             context.Database.EnsureDeleted();
         }
-
-
 
         private void SeedDatabase()
         {
@@ -167,10 +159,7 @@ namespace my_books_tests
             };
             context.Publishers.AddRange(publishers);
 
-
             context.SaveChanges();
         }
-
-
     }
 }

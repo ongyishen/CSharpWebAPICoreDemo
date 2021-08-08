@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using my_books.Data.Services;
 using my_books.Data.ViewModels;
 using my_books.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Controllers
 {
@@ -17,12 +13,12 @@ namespace my_books.Controllers
     {
         private PublishersService _publishersService;
         private readonly ILogger<PublishersController> _logger;
+
         public PublishersController(PublishersService publishersService, ILogger<PublishersController> logger)
         {
             _publishersService = publishersService;
             _logger = logger;
         }
-
 
         [HttpGet("get-all-publishers")]
         public IActionResult GetAllPublishers(string sortBy, string searchString, int? pageNumber)

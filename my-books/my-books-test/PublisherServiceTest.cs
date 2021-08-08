@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace my_books_test
 {
     public class PublisherServiceTest
@@ -18,8 +17,8 @@ namespace my_books_test
            .UseInMemoryDatabase(databaseName: "BookDbTest")
            .Options;
 
-        AppDbContext context;
-        PublishersService publishersService;
+        private AppDbContext context;
+        private PublishersService publishersService;
 
         [OneTimeSetUp]
         public void Setup()
@@ -191,7 +190,6 @@ namespace my_books_test
             };
             context.Authors.AddRange(authors);
 
-
             var books = new List<Book>()
             {
                 new Book()
@@ -241,7 +239,6 @@ namespace my_books_test
                 },
             };
             context.Books_Authors.AddRange(books_authors);
-
 
             context.SaveChanges();
         }

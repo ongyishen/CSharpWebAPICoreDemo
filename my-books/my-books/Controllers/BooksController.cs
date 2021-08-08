@@ -1,12 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using my_books.Data.Services;
 using my_books.Data.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Controllers
 {
@@ -14,21 +9,21 @@ namespace my_books.Controllers
     [ApiController]//Api Controller Decorator - define this is Api Controller not MVC Controller
     public class BooksController : ControllerBase
     {
-        public BooksController(BooksService booksService,ILogger<BooksController> logger)
+        public BooksController(BooksService booksService, ILogger<BooksController> logger)
         {
             _booksService = booksService;
             _logger = logger;
         }
+
         private readonly ILogger<BooksController> _logger;
 
         public BooksService _booksService { get; }
-
 
         [HttpGet("get-all-books")]
         public IActionResult GetAllBooks()
         {
             _logger.LogInformation("GetAllBooks");
-           var allBooks = _booksService.GetAllBooks();
+            var allBooks = _booksService.GetAllBooks();
             return Ok(allBooks);
         }
 

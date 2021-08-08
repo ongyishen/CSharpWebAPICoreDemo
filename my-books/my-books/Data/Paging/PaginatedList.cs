@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Data.Paging
 {
@@ -9,7 +8,6 @@ namespace my_books.Data.Paging
     {
         public int PageIndex { get; private set; }
         public int TotalPages { get; private set; }
-
 
         public PaginatedList(List<T> items, int count, int pageIndex, int pageSize)
         {
@@ -27,7 +25,6 @@ namespace my_books.Data.Paging
             }
         }
 
-
         public bool HasNextPage
         {
             get
@@ -35,7 +32,6 @@ namespace my_books.Data.Paging
                 return PageIndex < TotalPages;
             }
         }
-
 
         public static PaginatedList<T> Create(IQueryable<T> source, int pageIndex, int pageSize)
         {

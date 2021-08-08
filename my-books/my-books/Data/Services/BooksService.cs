@@ -3,13 +3,13 @@ using my_books.Data.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Data.Services
 {
     public class BooksService
     {
         private AppDbContext _context;
+
         public BooksService(AppDbContext context)
         {
             _context = context;
@@ -43,6 +43,7 @@ namespace my_books.Data.Services
                 _context.SaveChanges();
             }
         }
+
         public List<Book> GetAllBooks() => _context.Books.ToList();
 
         public BookWithAuthorsVM GetBookById(int bookId)
@@ -62,6 +63,7 @@ namespace my_books.Data.Services
 
             return _bookWithAuthors;
         }
+
         public Book UpdateBookById(int bookId, BookVM book)
         {
             var _book = _context.Books.FirstOrDefault(n => n.Id == bookId);
@@ -73,7 +75,7 @@ namespace my_books.Data.Services
                 _book.DateRead = book.IsRead ? book.DateRead.Value : null;
                 _book.Rate = book.IsRead ? book.Rate.Value : null;
                 _book.Genre = book.Genre;
-               // _book.Author = book.Author;
+                // _book.Author = book.Author;
                 _book.CoverUrl = book.CoverUrl;
 
                 _context.SaveChanges();
@@ -91,6 +93,5 @@ namespace my_books.Data.Services
                 _context.SaveChanges();
             }
         }
-
     }
 }

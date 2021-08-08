@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using my_books.Data.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace my_books.ActionResults
@@ -16,8 +13,6 @@ namespace my_books.ActionResults
         {
             _result = result;
         }
-
-
 
         public async Task ExecuteResultAsync(ActionContext context)
         {

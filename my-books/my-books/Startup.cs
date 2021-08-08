@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,10 +9,7 @@ using Microsoft.OpenApi.Models;
 using my_books.Data;
 using my_books.Data.Services;
 using my_books.Exceptions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books
 {
@@ -34,7 +29,6 @@ namespace my_books
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
             //Configure DB Context with SQL
@@ -69,6 +63,7 @@ namespace my_books
         {
             if (env.IsDevelopment())
             {
+                //Change launchSettings.json for launch setting
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "my_books v1"));

@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using my_books.Data.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace my_books.Controllers
 {
@@ -13,6 +9,7 @@ namespace my_books.Controllers
     public class LogsController : ControllerBase
     {
         private LogsService _logsService;
+
         public LogsController(LogsService logsService)
         {
             _logsService = logsService;

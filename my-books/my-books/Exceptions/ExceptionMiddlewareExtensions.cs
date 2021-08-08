@@ -4,11 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Logging;
 using my_books.Data.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace my_books.Exceptions
 {
@@ -20,7 +16,6 @@ namespace my_books.Exceptions
             {
                 appError.Run(async context =>
                 {
-
                     var logger = loggerFactory.CreateLogger("ConfigureBuildInExceptionHandler");
 
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
